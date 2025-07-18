@@ -92,3 +92,5 @@
 	user.STACON -= totalstatshift
 	user.STAPER -= totalstatshift
 	to_chat(user, "<font color='yellow'>My link wears off, their stolen fire returns to them</font>")
+
+#undef EQUALIZED_GLOW

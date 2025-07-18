@@ -523,6 +523,8 @@
 	owner.emote("breathgasp", forced = TRUE)
 	owner.Slowdown(3)
 
+#undef BLOODRAGE_FILTER
+
 /atom/movable/screen/alert/status_effect/buff/matthioshealing
 	name = "Healing Miracle"
 	desc = "Strange Divine intervention relieves me of my ailments."
@@ -563,6 +565,8 @@
 		owner.adjustToxLoss(-healing_on_tick, 0)
 		owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick)
 		owner.adjustCloneLoss(-healing_on_tick, 0)
+
+#undef MIRACLE_HEALING_FILTER //Why is this a thing?
 
 /datum/status_effect/buff/baothavitae
 	id = "druqks"
