@@ -9,7 +9,7 @@
 
 	charge_drain = FALSE
 	cooldown_time = 1 MINUTES
-
+	spell_type = SPELL_NONE
 	var/message
 
 /datum/action/cooldown/spell/undirected/tragedy/before_cast(atom/cast_on)

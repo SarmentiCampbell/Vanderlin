@@ -15,7 +15,7 @@
 
 	invocation = "Chill!"
 	invocation_type = INVOCATION_SHOUT
-
+	rituos = TRUE
 	beam_icon_state = "medbeam"
 	beam_color = "#87CEEB"
 	time = 6 SECONDS

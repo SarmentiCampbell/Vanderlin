@@ -9,7 +9,7 @@
 	attunements = list(
 		/datum/attunement/electric = 0.9
 	)
-
+	rituos = TRUE
 	charge_time = 3.5 SECONDS
 	charge_drain = 1
 	charge_slowdown = 1.3

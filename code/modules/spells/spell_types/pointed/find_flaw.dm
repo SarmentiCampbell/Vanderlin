@@ -5,7 +5,7 @@
 	has_visual_effects = FALSE
 
 	antimagic_flags = NONE
-
+	spell_type = SPELL_NONE
 	charge_required = FALSE
 	cooldown_time = 30 SECONDS
 

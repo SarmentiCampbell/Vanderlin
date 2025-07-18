@@ -15,7 +15,7 @@
 	charge_slowdown = 0.7
 	cooldown_time = 30 SECONDS
 	spell_cost = 40
-
+	rituos = TRUE
 	projectile_type = /obj/projectile/magic/lightning
 
 /obj/projectile/magic/lightning

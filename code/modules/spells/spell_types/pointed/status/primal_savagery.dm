@@ -15,7 +15,7 @@
 	charge_required = FALSE
 	cooldown_time = 60 SECONDS
 	spell_cost = 50
-
+	rituos = TRUE
 	status_effect = /datum/status_effect/buff/primal_savagery
 	duration_scaling = TRUE
 	duration_modification = 30 SECONDS

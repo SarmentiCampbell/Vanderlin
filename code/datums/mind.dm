@@ -130,6 +130,10 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	var/picking = FALSE
 	///the bitflag our job applied
 	var/job_bitflag = NONE
+	///Zizo's Rituos
+	var/has_changed_spell = FALSE // If the person has changed their spells for theday
+	var/has_rituos = FALSE
+	var/datum/action/cooldown/spell/rituos_spell
 
 
 /datum/mind/New(key)

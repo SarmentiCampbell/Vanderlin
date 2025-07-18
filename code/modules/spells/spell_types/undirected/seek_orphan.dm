@@ -4,7 +4,7 @@
 
 	charge_required = FALSE
 	cooldown_time = 20 SECONDS
-
+	spell_type = SPELL_NONE
 	var/datum/weakref/targeted_orphan
 
 /datum/action/cooldown/spell/undirected/seek_orphan/Destroy()

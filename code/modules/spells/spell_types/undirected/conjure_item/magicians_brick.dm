@@ -12,7 +12,7 @@
 
 	invocation = "Valtarem!"
 	invocation_type = INVOCATION_SHOUT
-
+	rituos = TRUE
 	item_type = /obj/item/weapon/magicbrick
 	item_duration = 3 MINUTES
 	item_outline = "#6495ED"

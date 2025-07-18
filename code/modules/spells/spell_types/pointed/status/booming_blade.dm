@@ -9,7 +9,7 @@
 	attunements = list(
 		/datum/attunement/arcyne = 0.4,
 	)
-
+	rituos = TRUE
 	invocation = "Be still!"
 	invocation_type = INVOCATION_SHOUT
 

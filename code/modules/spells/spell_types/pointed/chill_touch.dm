@@ -13,7 +13,7 @@
 
 	invocation = "Be torn apart!"
 	invocation_type = INVOCATION_SHOUT
-
+	rituos = TRUE
 	charge_time = 2 SECONDS
 	charge_drain = 0
 	charge_slowdown = 0.3

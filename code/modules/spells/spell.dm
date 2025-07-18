@@ -167,6 +167,9 @@
 	/// If the spell creates visual effects
 	var/has_visual_effects = TRUE
 
+	/// Is this learnable via Rituos.
+	var/rituos = FALSE
+
 /datum/action/cooldown/spell/New(Target)
 	. = ..()
 	if(!active_msg)

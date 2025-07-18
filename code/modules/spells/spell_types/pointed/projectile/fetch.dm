@@ -15,5 +15,5 @@
 	charge_slowdown = 0.3
 	cooldown_time = 20 SECONDS
 	spell_cost = 30
-
+	rituos = TRUE
 	projectile_type = /obj/projectile/magic/fetch

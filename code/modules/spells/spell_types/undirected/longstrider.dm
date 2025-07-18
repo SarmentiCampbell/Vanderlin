@@ -17,6 +17,7 @@
 	charge_slowdown = 0.3
 	cooldown_time = 60 SECONDS
 	spell_cost = 50
+	rituos = TRUE
 
 /datum/action/cooldown/spell/undirected/longstrider/cast(atom/cast_on)
 	. = ..()

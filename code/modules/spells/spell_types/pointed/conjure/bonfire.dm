@@ -11,7 +11,7 @@
 	charge_required = FALSE
 	cooldown_time = 30 SECONDS
 	spell_cost = 30
-
+	rituos = TRUE
 	invocation = "Bonfire!"
 	invocation_type = INVOCATION_SHOUT
 

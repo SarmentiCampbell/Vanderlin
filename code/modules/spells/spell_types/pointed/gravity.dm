@@ -4,7 +4,7 @@
 	button_icon_state = "gravity"
 	sound = 'sound/magic/gravity.ogg'
 	self_cast_possible = FALSE
-
+	rituos = TRUE
 	point_cost = 2
 	attunements = list(
 		/datum/attunement/dark = 0.6,

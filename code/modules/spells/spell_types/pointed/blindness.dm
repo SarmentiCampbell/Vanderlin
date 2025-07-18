@@ -7,7 +7,7 @@
 	attunements = list(
 		/datum/attunement/arcyne = 0.1
 	)
-
+	rituos = TRUE
 	charge_required = FALSE
 	cooldown_time = 2 MINUTES
 	spell_cost = 30

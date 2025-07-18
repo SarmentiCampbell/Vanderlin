@@ -17,7 +17,7 @@
 	charge_slowdown = 0.7
 	cooldown_time = 15 SECONDS
 	spell_cost = 25
-
+	rituos = TRUE
 	projectile_type = /obj/projectile/magic/eldritchblast
 
 /obj/projectile/magic/eldritchblast
