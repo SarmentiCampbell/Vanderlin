@@ -12,7 +12,7 @@
 	charge_drain = 2
 	cooldown_time = 25 SECONDS
 	spell_cost = 40
-	rituos = TRUE
+	spell_type = SPELL_MANA | SPELL_RITUOS
 	aoe_radius = 4
 
 	var/duration = 4 SECONDS

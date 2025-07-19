@@ -37,11 +37,6 @@
 		qdel(held_item)
 		projectile_type = /obj/projectile/magic/profane/major
 		big_cast = TRUE
-	else if(istype(held_item, /obj/item/natural/bundle/bone))
-		var/obj/item/natural/bundle/bone/boney_bundle = held_item
-		if(boney_bundle.use(1))
-			projectile_type = /obj/projectile/magic/profane/major
-			big_cast = TRUE
 	if(big_cast)
 		owner.visible_message(span_danger("[owner] conjures and hurls a vicious lance of bone!"), span_notice("I hurl forth a vicious lance of profaned bone!"))
 	else

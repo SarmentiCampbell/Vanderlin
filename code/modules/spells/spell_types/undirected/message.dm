@@ -15,7 +15,7 @@
 	var/message
 	/// If we try to hide our identity
 	var/anonymous = FALSE
-	rituos = TRUE
+	spell_type = SPELL_MANA | SPELL_RITUOS
 
 /datum/action/cooldown/spell/undirected/message/Destroy(force, ...)
 	recipient_ref = null

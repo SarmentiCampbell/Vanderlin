@@ -11,7 +11,7 @@
 
 	invocation = "Let there be light."
 	invocation_type = INVOCATION_WHISPER
-	rituos = TRUE
+	spell_type = SPELL_MANA | SPELL_RITUOS
 	delete_old = TRUE
 	item_type = /obj/item/flashlight/flare/light
 	item_duration = null

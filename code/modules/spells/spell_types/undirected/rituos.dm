@@ -9,12 +9,13 @@
 	invocation_type = INVOCATION_NONE
 	charge_required = TRUE
 	charge_time = 10 SECONDS
-	cooldown_time = 2 MINUTES
+	cooldown_time = 3 HOURS
 	attunements = list(
 		/datum/attunement/death = 0.5
 	)
 	spell_cost = 120
 	var/list/excluded_bodyparts = list(/obj/item/bodypart/head)
+	var/datum/action/cooldown/spell/heldspell
 
 /datum/action/cooldown/spell/undirected/rituos/proc/check_ritual_progress(mob/living/carbon/user)
 	var/rituos_complete = TRUE
@@ -46,10 +47,6 @@
 		to_chat(cast_on, span_notice("I have completed Her Lesser Work. Only lichdom awaits me now, but just out of reach..."))
 		return
 
-	if(cast_on.mind?.has_rituos)
-		to_chat(cast_on, span_warning("I have not the mental fortitude to enact the Lesser Work again. I must rest first..."))
-		return
-
 	//hoo boy. here we go.
 	var/list/possible_parts = list()
 	for(var/obj/item/bodypart/BP in cast_on.bodyparts)
@@ -68,15 +65,14 @@
 
 	var/obj/item/bodypart/the_part = pick(possible_parts)
 	var/obj/item/bodypart/part_to_bonify = cast_on.get_bodypart(the_part.body_zone)
+	RegisterSignal(cast_on, COMSIG_LIVING_DREAM_END, PROC_REF(on_dream_end))
 
 	var/list/spell_choices = get_spell_choices()
 	var/list/choices = list()
 	for(var/spell_type in spell_choices)
 		var/datum/action/cooldown/spell/spell_item = spell_type
-		if(!initial(spell_item.rituos))
-			continue
-		choices[initial(spell_item.name)] = spell_item
-
+		if(spell_item.spell_type & SPELL_RITUOS)
+			choices[initial(spell_item.name)] = spell_item
 	choices = sortList(choices)
 
 	var/choice = input("Choose an arcyne expression of the Lesser Work") as null|anything in choices
@@ -94,13 +90,7 @@
 	part_to_bonify.skeletonize(FALSE)
 	cast_on.regenerate_icons()
 	cast_on.visible_message(span_warning("Faint runes flare beneath [cast_on]'s skin before their flesh suddenly slides away from their [part_to_bonify.name]!"), span_notice("I feel arcyne power surge throughout my frail mortal form, as the Rituos takes its terrible price from my [part_to_bonify.name]."))
-
-	if(cast_on.mind?.rituos_spell)
-		to_chat(cast_on, span_warning("My knowledge of [cast_on.mind.rituos_spell.name] flees..."))
-		qdel(cast_on.mind.rituos_spell)
-		cast_on.mind.rituos_spell = null
-
-	cast_on.mind.has_rituos = TRUE
+	heldspell = spell_type
 
 	var/post_rituos = check_ritual_progress(cast_on)
 	if(post_rituos)
@@ -111,11 +101,22 @@
 		cast_on.visible_message(span_boldwarning("[cast_on]'s form swells with terrible power as they cast away almost all of the remnants of their mortal flesh, arcyne runes glowing upon their exposed bones..."), span_notice("I HAVE DONE IT! I HAVE COMPLETED HER LESSER WORK! I stand at the cusp of unspeakable power, but something is yet missing..."))
 		ADD_TRAIT(cast_on, TRAIT_NOHUNGER, "[type]")
 		ADD_TRAIT(cast_on, TRAIT_NOBREATH, "[type]")
+		UnregisterSignal(cast_on, COMSIG_LIVING_DREAM_END)
 		if(prob(33))
 			to_chat(cast_on, span_danger("...what have I done?"))
+		cast_on.remove_spell(src, source = src) //I assume it'll work?
 		return
 	else
 		to_chat(cast_on, span_notice("The Lesser Work of Rituos floods my mind with stolen arcyne knowledge: I can now cast it until I next rest..."))
-		cast_on.mind.rituos_spell = spell_type
-		cast_on.add_spell(spell_type)
+		cast_on.add_spell(heldspell)
 		return
+
+/datum/action/cooldown/spell/undirected/rituos/proc/on_dream_end(mob/living/carbon/user)
+	SIGNAL_HANDLER
+	if(heldspell)
+		to_chat(user, span_warning("My glimpse of [heldspell.name] fades as I awaken..."))
+		user.remove_spell(heldspell)
+		heldspell = null
+	to_chat(user, span_smallnotice("The toil of invoking Her Lesser Work slips away. I may begin anew…"))
+	reset_spell_cooldown()
+	UnregisterSignal(user, COMSIG_LIVING_DREAM_END)

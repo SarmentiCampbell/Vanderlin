@@ -5,7 +5,7 @@
 	button_icon_state = "orison"
 	sound = 'sound/magic/whiteflame.ogg'
 	self_cast_possible = FALSE
-	rituos = TRUE
+	spell_type = SPELL_MANA | SPELL_RITUOS
 	cast_range = 1
 	point_cost = 3
 	associated_skill = /datum/skill/magic/blood

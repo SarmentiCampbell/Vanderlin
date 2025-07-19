@@ -8,7 +8,7 @@
 	attunements = list(
 		/datum/attunement/illusion = 0.4,
 	)
-	rituos = TRUE
+	spell_type = SPELL_MANA | SPELL_RITUOS
 	cooldown_time = 10 MINUTES
 
 	hand_path = /obj/item/melee/touch_attack/nondetection

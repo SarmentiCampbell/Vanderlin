@@ -13,7 +13,8 @@
 	attunements = list(
 		/datum/attunement/aeromancy = 0.5,
 	)
-	rituos = TRUE
+	spell_type = SPELL_MANA | SPELL_RITUOS
+
 /datum/action/cooldown/spell/undirected/feather_falling/cast(atom/cast_on)
 	. = ..()
 	var/duration_increase = min(0, attuned_strength * 90 SECONDS)

@@ -72,3 +72,6 @@
 #define COMSIG_LIVING_MANA_CHANGED "living_mana_changed"
 /// from base of [datum/devotion/cleric_holder/update_devotion()]
 #define COMSIG_LIVING_DEVOTION_CHANGED "living_devotion_changed"
+
+///from base of
+#define COMSIG_LIVING_DREAM_END  "living_sleep_advancement_end"

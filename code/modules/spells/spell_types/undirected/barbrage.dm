@@ -9,8 +9,6 @@
 	charge_required = FALSE
 	has_visual_effects = FALSE
 	cooldown_time = 1 MINUTES
-
-	spell_type = SPELL_NONE
 	stamina_cost = 10
 
 /datum/action/cooldown/spell/undirected/barbrage/can_cast_spell(feedback)

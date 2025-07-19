@@ -513,7 +513,9 @@
 
 /datum/status_effect/buff/bloodrage/on_apply()
 	. = ..()
-	owner.add_filter(BLOODRAGE_FILTER, 2, outline_filter(2, outline_color)))
+	owner.add_filter(BLOODRAGE_FILTER, 2, outline_filter(2, outline_color))
+
+
 
 /datum/status_effect/buff/bloodrage/on_remove()
 	. = ..()
@@ -547,8 +549,9 @@
 /datum/status_effect/buff/matthioshealing/on_apply()
 	. = ..()
 	SEND_SIGNAL(owner, COMSIG_LIVING_MIRACLE_HEAL_APPLY, healing_on_tick, src)
-	owner.add_filter(MIRACLE_HEALING_FILTER, 2,  outline_filter(2, outline_colour)))
+	owner.add_filter(MIRACLE_HEALING_FILTER, 2,  outline_filter(2, outline_colour))
 	return TRUE
+
 
 /datum/status_effect/buff/matthioshealing/tick()
 	if(owner.blood_volume < BLOOD_VOLUME_NORMAL)

@@ -14,10 +14,11 @@
 	cooldown_time = 5 MINUTES
 	spell_cost = 80
 	var/static/list/purged_effects = list(
-	/datum/status_effect/incapacitating/immobilized,
-	/datum/status_effect/incapacitating/paralyzed,
-	/datum/status_effect/incapacitating/stun,
-	/datum/status_effect/incapacitating/knockdown)
+			/datum/status_effect/incapacitating/immobilized,
+			/datum/status_effect/incapacitating/paralyzed,
+			/datum/status_effect/incapacitating/stun,
+			/datum/status_effect/incapacitating/knockdown,
+		)
 
 /datum/action/cooldown/spell/undirected/bloodrage/cast(mob/living/cast_on)
 	. = ..()
@@ -28,4 +29,4 @@
 		cast_on.remove_status_effect(effect)
 	cast_on.apply_status_effect(/datum/status_effect/buff/bloodrage)
 	cast_on.visible_message(span_danger("[cast_on] rises upward, boiling with immense rage!"))
-	return TRUE
+

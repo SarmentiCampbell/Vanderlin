@@ -14,7 +14,7 @@
 
 	choose_target_message = "Choose who to invade the mind of."
 	target_radius = 6
-	rituos = TRUE
+	spell_type = SPELL_MANA | SPELL_RITUOS
 	var/message
 
 /datum/action/cooldown/spell/undirected/list_target/encode_thoughts/before_cast(atom/cast_on)

@@ -9,7 +9,7 @@
 	charge_required = FALSE
 	cooldown_time = 15 SECONDS
 	spell_cost = 0
-	rituos = TRUE
+	spell_type = SPELL_MANA | SPELL_RITUOS
 	attunements = list(
 		/datum/attunement/arcyne = 0.1
 	)

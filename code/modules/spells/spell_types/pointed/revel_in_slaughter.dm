@@ -30,6 +30,7 @@
 		qdel(B)
 	if(!success)
 		to_chat(owner, span_warning("I need blood around me to do this!"))
+		reset_spell_cooldown()
 		return . | SPELL_CANCEL_CAST
 
 /datum/action/cooldown/spell/revel_in_slaughter/cast(atom/cast_on, mob/living/user = usr)

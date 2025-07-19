@@ -150,6 +150,8 @@ DEFINE_BITFIELD(antimagic_flags, list(
 #define SPELL_BLOOD 4
 /// Use energy
 #define SPELL_ENERGY 5
+/// Is learnable via Rituos
+#define SPELL_RITUOS (1 << 1)
 
 // Bitflags for spell requirements
 /// Whether the spell requires wizard clothes to cast.
