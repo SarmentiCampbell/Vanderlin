@@ -502,18 +502,18 @@
 	var/outline_color = "#ad0202"
 	duration = 15 SECONDS
 
-/datum/status_effect/buff/bloodrage/on_apply()
+/datum/status_effect/buff/bloodrage/on_creation(mob/living/new_owner, duration_override, ...)
 	var/holyskill = owner.get_skill_level(/datum/skill/magic/holy)
 	duration = ((15 SECONDS) * holyskill)
-	var/filter = owner.get_filter(BLOODRAGE_FILTER)
-	if(!filter)
-		owner.add_filter(BLOODRAGE_FILTER, 2, list("type" = "outline", "color" = outline_color, "alpha" = 60, "size" = 2))
 	if(holyskill >= SKILL_LEVEL_APPRENTICE)
-		effectedstats = list("strength" = 2)
+		effectedstats = list(STATKEY_STR = 2)
 	else
-		effectedstats = list("strength" = 1)
+		effectedstats = list(STATKEY_STR = 1)
+	return ..()
+
+/datum/status_effect/buff/bloodrage/on_apply()
 	. = ..()
-	return TRUE
+	owner.add_filter(BLOODRAGE_FILTER, 2, outline_filter(2, outline_color)))
 
 /datum/status_effect/buff/bloodrage/on_remove()
 	. = ..()
@@ -547,31 +547,27 @@
 /datum/status_effect/buff/matthioshealing/on_apply()
 	. = ..()
 	SEND_SIGNAL(owner, COMSIG_LIVING_MIRACLE_HEAL_APPLY, healing_on_tick, src)
-	var/filter = owner.get_filter(MIRACLE_HEALING_FILTER)
-	if(!filter)
-		owner.add_filter(MIRACLE_HEALING_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 60, "size" = 1))
+	owner.add_filter(MIRACLE_HEALING_FILTER, 2,  outline_filter(2, outline_colour)))
 	return TRUE
 
 /datum/status_effect/buff/matthioshealing/tick()
-	var/list/wCount = owner.get_wounds()
 	if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
 		owner.blood_volume = min(owner.blood_volume+10, BLOOD_VOLUME_NORMAL)
-	if(wCount.len > 0)
+	if(owner.get_wounds())
 		owner.heal_wounds(healing_on_tick)
 		owner.update_damage_overlays()
 		owner.adjustBruteLoss(-healing_on_tick, 0)
-		owner.adjustFireLoss(-healing_on_tick, 0)
-		owner.adjustOxyLoss(-healing_on_tick, 0)
-		owner.adjustToxLoss(-healing_on_tick, 0)
+		owner.adjustFireLoss(-healing_on_tick, FALSE)
+		owner.adjustOxyLoss(-healing_on_tick, FALSE)
+		owner.adjustToxLoss(-healing_on_tick, FALSE)
 		owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick)
-		owner.adjustCloneLoss(-healing_on_tick, 0)
 
 #undef MIRACLE_HEALING_FILTER //Why is this a thing?
 
 /datum/status_effect/buff/baothavitae
 	id = "druqks"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/baothavitae
-	effectedstats = list("fortune" = 2)
+	effectedstats = list(STATKEY_LCK = 2)
 	duration = 1 MINUTES
 
 /datum/status_effect/buff/baothavitae/on_apply()
