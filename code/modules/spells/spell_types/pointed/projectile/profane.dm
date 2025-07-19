@@ -13,7 +13,7 @@
 		/datum/attunement/blood = 0.3,
 	)
 	invocation = "Oblino!"
-	invocation_type = INVOCATION_WHISPER
+	invocation_type = INVOCATION_SHOUT
 	charge_drain = 1
 	charge_time = 2 SECONDS
 	charge_slowdown = 0.3
