@@ -24,6 +24,8 @@
 
 /datum/action/cooldown/spell/projectile/profane/before_cast(mob/living/cast_on)
 	. = ..()
+	if(. & SPELL_CANCEL_CAST)
+		return
 	var/obj/item/held_item = owner.get_active_held_item()
 	var/big_cast = FALSE
 	if(istype(held_item, /obj/item/natural/bundle/bone))
