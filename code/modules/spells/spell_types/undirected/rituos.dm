@@ -104,7 +104,7 @@
 		UnregisterSignal(cast_on, COMSIG_LIVING_DREAM_END)
 		if(prob(33))
 			to_chat(cast_on, span_danger("...what have I done?"))
-		cast_on.remove_spell(src, source = src) //I assume it'll work?
+		cast_on.remove_spell(/datum/action/cooldown/spell/undirected/rituos) //I assume it'll work?
 		return
 	else
 		to_chat(cast_on, span_notice("The Lesser Work of Rituos floods my mind with stolen arcyne knowledge: I can now cast it until I next rest..."))
