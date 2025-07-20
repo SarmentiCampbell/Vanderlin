@@ -71,8 +71,9 @@
 	var/list/choices = list()
 	for(var/spell_type in spell_choices)
 		var/datum/action/cooldown/spell/spell_item = spell_type
-		if(spell_item.spell_type & SPELL_RITUOS)
-			choices[initial(spell_item.name)] = spell_item
+		if(!(spell_item.spell_flags & SPELL_RITUOS))
+			continue
+		choices[initial(spell_item.name)] = spell_item
 	choices = sortList(choices)
 
 	var/choice = input("Choose an arcyne expression of the Lesser Work") as null|anything in choices

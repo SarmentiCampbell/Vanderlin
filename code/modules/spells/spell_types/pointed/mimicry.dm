@@ -4,7 +4,7 @@
 	button_icon_state = "invisibility"
 	sound = 'sound/misc/stings/generic.ogg'
 	self_cast_possible = FALSE
-	spell_type = SPELL_MANA | SPELL_RITUOS
+	spell_flags = SPELL_RITUOS
 	attunements = list(
 		/datum/attunement/dark = 0.4,
 		/datum/attunement/polymorph = 1.2,

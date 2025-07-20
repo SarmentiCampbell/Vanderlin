@@ -3,7 +3,6 @@
 	desc = "Check how much someone has."
 	button_icon_state = "appraise"
 	has_visual_effects = FALSE
-	spell_type = SPELL_NONE
 	cast_range = 2
 	associated_skill = /datum/skill/misc/reading
 	charge_required = FALSE

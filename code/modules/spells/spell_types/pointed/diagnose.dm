@@ -7,7 +7,6 @@
 
 	cast_range = 2
 	associated_skill = /datum/skill/misc/medicine
-	spell_type = SPELL_NONE
 	charge_required = FALSE
 	cooldown_time = 10 SECONDS
 	spell_cost = 0

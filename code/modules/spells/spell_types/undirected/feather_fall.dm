@@ -9,11 +9,10 @@
 	charge_time = 4 SECONDS
 	cooldown_time = 3 MINUTES
 	spell_cost = 50
-
+	spell_flags = SPELL_RITUOS
 	attunements = list(
 		/datum/attunement/aeromancy = 0.5,
 	)
-	spell_type = SPELL_MANA | SPELL_RITUOS
 
 /datum/action/cooldown/spell/undirected/feather_falling/cast(atom/cast_on)
 	. = ..()

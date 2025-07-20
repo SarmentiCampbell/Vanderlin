@@ -5,7 +5,6 @@
 
 	charge_required = FALSE
 	cooldown_time = 3 MINUTES
-	spell_type = SPELL_NONE
 	var/brat_name
 
 /datum/action/cooldown/spell/undirected/hag_call/before_cast(atom/cast_on)

@@ -4,7 +4,6 @@
 	button_icon_state = "recruit_titlegrant"
 
 	cooldown_time = 4 MINUTES
-	spell_type = SPELL_NONE
 	target_radius = 3
 
 	var/title
