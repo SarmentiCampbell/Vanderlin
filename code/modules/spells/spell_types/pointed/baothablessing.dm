@@ -12,6 +12,8 @@
 	charge_required = FALSE
 	cooldown_time = 10 SECONDS
 	spell_cost = 10
+	invocation = "Receive Boatha's Gift!"
+	invocation_type = INVOCATION_SHOUT
 
 
 /datum/action/cooldown/spell/baothablessings/is_valid_target(atom/cast_on)
