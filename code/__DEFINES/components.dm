@@ -310,4 +310,3 @@
 
 #define COMSIG_COMBAT_TARGET_SET "comsig_combat_target_set"
 
-#define COMSIG_LIVING_MIRACLE_HEAL_APPLY "living_miracle_heal_apply"

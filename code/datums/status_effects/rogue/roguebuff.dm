@@ -480,7 +480,7 @@
 	id = "call_to_slaughter"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/call_to_slaughter
 	duration = 2.5 MINUTES
-	effectedstats = list(STATKEY_STR = 1, STATKEY_END = 2, STATKEY_CON = 1)
+	effectedstats = list(STATKEY_STR = 1, STATKEY_END = 1, STATKEY_CON = 1)
 
 /atom/movable/screen/alert/status_effect/buff/call_to_slaughter
 	name = "Call to Slaughter"
@@ -547,7 +547,6 @@
 
 /datum/status_effect/buff/matthioshealing/on_apply()
 	. = ..()
-	SEND_SIGNAL(owner, COMSIG_LIVING_MIRACLE_HEAL_APPLY, healing_on_tick, src)
 	owner.add_filter(MIRACLE_HEALING_FILTER, 2,  outline_filter(2, outline_colour))
 	return TRUE
 
@@ -566,24 +565,9 @@
 
 #undef MIRACLE_HEALING_FILTER //Why is this a thing?
 
-/datum/status_effect/buff/baothavitae
+/datum/status_effect/buff/lux_drank/baothavitae
 	id = "druqks"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/baothavitae
-	effectedstats = list(STATKEY_LCK = 2)
 	duration = 1 MINUTES
-
-/datum/status_effect/buff/baothavitae/on_apply()
-	. = ..()
-	owner.add_stress(/datum/stressevent/high)
-	SEND_SIGNAL(owner, COMSIG_LUX_TASTED) //???
-
-/datum/status_effect/buff/baothavitae/on_remove()
-	owner.remove_stress(/datum/stressevent/high)
-	. = ..()
-
-/atom/movable/screen/alert/status_effect/buff/baothavitae
-	name = "Invigorated"
-	desc = "I have supped on the finest of delicacies: life!"
 
 // BARDIC BUFFS BELOW
 
@@ -897,7 +881,7 @@
 /datum/status_effect/buff/lux_drank
 	id = "lux_drank"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/lux_drank
-	effectedstats = list("fortune" = 2)
+	effectedstats = list(STATKEY_LCK = 2)
 	duration = 10 SECONDS
 
 /datum/status_effect/buff/lux_drank/on_apply()
