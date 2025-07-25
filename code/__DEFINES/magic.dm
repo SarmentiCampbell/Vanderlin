@@ -144,10 +144,6 @@ DEFINE_BITFIELD(antimagic_flags, list(
 #define SPELL_STAMINA 2
 /// Miracle, uses devotion and thus requires a devotion holder
 #define SPELL_MIRACLE 3
-/// Uses vitae
-#define SPELL_BLOOD 4
-/// Use energy
-#define SPELL_ENERGY 5
 
 /// Casted with the essence gauntlet, using essence vials
 #define SPELL_ESSENCE 4
