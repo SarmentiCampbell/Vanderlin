@@ -74,7 +74,7 @@
 	added_traits = list(TRAIT_MATTHIOS_EYES)
 	t0 = /datum/action/cooldown/spell/appraise/holy //what the point if he got matthios's eyes though?
 	t1 = /datum/action/cooldown/spell/transact
-	t2 = /datum/action/cooldown/spell/equalize
+	t2 = /datum/action/cooldown/spell/beam/equalize
 	t3 = /datum/action/cooldown/spell/churn_wealthy
 	confess_lines = list(
 		"MATTHIOS STEALS FROM THE WORTHLESS!",
