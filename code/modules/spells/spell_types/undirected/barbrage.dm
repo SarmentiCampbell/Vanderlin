@@ -26,6 +26,7 @@
 			to_chat(owner, span_warning("I can't seem to get angry..."))
 		return FALSE
 
+
 /datum/action/cooldown/spell/undirected/barbrage/cast(mob/living/cast_on)
 	. = ..()
 	cast_on.emote("rage", forced = TRUE)
