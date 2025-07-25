@@ -8,18 +8,19 @@
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
+	invocation = "Oblino!"
+	invocation_type = INVOCATION_SHOUT
+
 	attunements = list(
 		/datum/attunement/death = 0.3,
 		/datum/attunement/blood = 0.3,
 	)
-	invocation = "Oblino!"
-	invocation_type = INVOCATION_SHOUT
+
 	charge_drain = 1
 	charge_time = 2 SECONDS
 	charge_slowdown = 0.3
 	cooldown_time = 10 SECONDS
 	spell_cost = 35
-
 	projectile_type = /obj/projectile/magic/profane
 
 /datum/action/cooldown/spell/projectile/profane/before_cast(mob/living/cast_on)

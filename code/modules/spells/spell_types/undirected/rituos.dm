@@ -3,17 +3,21 @@
 	desc = "Draw upon the Lesser Work of She Who Is Z, and expunge the trappings of mortal flesh from your form in exchange for power unimaginable. Be warned: indulging in even the first step of this ritual will make you more deadite than not..."
 	button_icon_state = "createlight"
 	sound = 'sound/magic/timestop.ogg'
+
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
 	invocation_type = INVOCATION_NONE
+
 	charge_required = TRUE
 	charge_time = 10 SECONDS
 	cooldown_time = 3 HOURS
+	spell_cost = 120
+
 	attunements = list(
 		/datum/attunement/death = 0.5
 	)
-	spell_cost = 120
+
 	var/list/excluded_bodyparts = list(/obj/item/bodypart/head)
 	var/datum/action/cooldown/spell/heldspell
 

@@ -2,10 +2,12 @@
 	name = "Transact"
 	desc = "Call upon your patron to heal the wounds of yourself or others by sacrificing a item. it's value as healing."
 	button_icon_state = "transact"
-	cast_range = 4
+
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
+
+	cast_range = 4
 	charge_required = FALSE
 	cooldown_time = 20 SECONDS
 	spell_cost = 20

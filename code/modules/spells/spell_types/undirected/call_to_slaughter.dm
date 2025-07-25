@@ -9,6 +9,7 @@
 	associated_skill = /datum/skill/magic/holy
 	invocation = "LAMBS TO THE SLAUGHTER!"
 	invocation_type = INVOCATION_SHOUT
+
 	charge_required = FALSE
 	cooldown_time = 5 MINUTES
 	spell_cost = 40

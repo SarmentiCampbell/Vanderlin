@@ -5,16 +5,16 @@
 	sound = 'sound/magic/heal.ogg'
 	charge_sound = 'sound/magic/holycharging.ogg'
 
-	cast_range = 4
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	charge_required = FALSE
-	cooldown_time = 10 SECONDS
-	spell_cost = 10
 	invocation = "Receive Boatha's Gift!"
 	invocation_type = INVOCATION_SHOUT
 
+	cast_range = 4
+	charge_required = FALSE
+	cooldown_time = 10 SECONDS
+	spell_cost = 10
 
 /datum/action/cooldown/spell/baothablessings/is_valid_target(atom/cast_on)
 	. = ..()

@@ -8,14 +8,15 @@
 	spell_type = SPELL_MIRACLE //it does count as one, funnily enough.
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
+
 	attunements = list(
 		/datum/attunement/blood = 0.5,
 	)
+
 	charge_time = 2 SECONDS
 	charge_drain = 1
 	cooldown_time = 10 SECONDS
 	spell_cost = 30
-
 	projectile_type = /obj/projectile/magic/unholy_grasp
 
 /datum/action/cooldown/spell/projectile/blood_net/before_cast()

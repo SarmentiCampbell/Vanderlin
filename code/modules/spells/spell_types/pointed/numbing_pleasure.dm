@@ -2,15 +2,19 @@
 	name = "Numbing Pleasure"
 	button_icon_state = "astrata"
 	sound = 'sound/magic/timestop.ogg'
+
+
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
 	invocation = "May you find bliss through your pain!"
 	invocation_type = INVOCATION_SHOUT
+
 	attunements = list(
 		/datum/attunement/electric = 0.3,
 		/datum/attunement/aeromancy = 0.3,
 	)
+
 	charge_required = FALSE
 	cooldown_time = 2 MINUTES
 	spell_cost = 75
