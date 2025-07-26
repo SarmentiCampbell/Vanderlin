@@ -25,7 +25,7 @@
 	if(. & SPELL_CANCEL_CAST)
 		return
 
-	if(cast_on.stat = DEAD)
+	if(cast_on.stat == DEAD)
 		to_chat(cast_on, span_warning("I am dead."))
 		reset_spell_cooldown()
 		return . | SPELL_CANCEL_CAST
