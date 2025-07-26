@@ -15,7 +15,7 @@
 /datum/action/cooldown/spell/transact/is_valid_target(atom/cast_on)
 	. = ..()
 	if(!.)
-		return FALSE
+		return
 	return isliving(cast_on)
 
 /datum/action/cooldown/spell/transact/cast(mob/living/cast_on)
@@ -28,7 +28,7 @@
 	if(!helditemvalue)
 		to_chat(owner, span_info("This has no value, It will be of no use In such a transaction."))
 		return
-	if(helditemvalue<10)
+	if(helditemvalue < 10)
 		to_chat(owner, span_info("This has little value, It will be of no use In such a transaction."))
 		return
 	if(istype(cast_on.patron, /datum/patron/psydon))
@@ -45,7 +45,7 @@
 		playsound(owner, 'sound/combat/hits/burn (2).ogg', 100, TRUE)
 		qdel(held_item)
 	else
-		cast_on.adjustBruteLoss(helditemvalue/2)
-		cast_on.adjustFireLoss(helditemvalue/2)
-		playsound(owner, 'sound/combat/hits/burn (2).ogg', 100, TRUE)
-		qdel(held_item)
+		cast_on.adjustBruteLoss(helditemvalue / 2)
+		cast_on.adjustFireLoss(helditemvalue / 2)
+	playsound(owner, 'sound/combat/hits/burn (2).ogg', 100, TRUE)
+	qdel(held_item)

@@ -21,6 +21,10 @@
 	var/list/excluded_bodyparts = list(/obj/item/bodypart/head)
 	var/datum/action/cooldown/spell/heldspell
 
+/datum/action/cooldown/spell/undirected/rituos/Destroy(force, ...)
+	heldspell = null // Deleted with us
+	return ..()
+
 /datum/action/cooldown/spell/undirected/rituos/proc/check_ritual_progress(mob/living/carbon/user)
 	var/rituos_complete = TRUE
 	for(var/obj/item/bodypart/our_limb in user.bodyparts)
@@ -113,14 +117,14 @@
 		return
 	else
 		to_chat(cast_on, span_notice("The Lesser Work of Rituos floods my mind with stolen arcyne knowledge: I can now cast it until I next rest..."))
-		cast_on.add_spell(heldspell)
+		cast_on.add_spell(heldspell, FALSE, src)
 		return
 
 /datum/action/cooldown/spell/undirected/rituos/proc/on_dream_end(mob/living/carbon/user)
 	SIGNAL_HANDLER
 	if(heldspell)
 		to_chat(user, span_warning("My glimpse of [heldspell.name] fades as I awaken..."))
-		user.remove_spell(heldspell)
+		user.remove_spells(source = src)
 		heldspell = null
 	to_chat(user, span_smallnotice("The toil of invoking Her Lesser Work slips away. I may begin anew…"))
 	reset_spell_cooldown()

@@ -22,7 +22,7 @@
 /datum/action/cooldown/spell/painkiller/is_valid_target(atom/cast_on)
 	. = ..()
 	if(!.)
-		return FALSE
+		return
 	return ishuman(cast_on)
 
 /datum/action/cooldown/spell/painkiller/cast(mob/living/carbon/human/cast_on)
@@ -34,4 +34,3 @@
 	phy.pain_mod *= 0.5	//Literally halves your pain modifier.
 	addtimer(VARSET_CALLBACK(phy, pain_mod, phy.pain_mod /= 0.5), 1 MINUTES)	//Adds back the 0.5 of pain, basically setting it back to 1.
 	cast_on.apply_status_effect(/datum/status_effect/buff/lux_drank/baothavitae)					//Basically lowers fortune by 2 but +3 speed, it's powerful. Drugs cus Baotha.
-	return TRUE

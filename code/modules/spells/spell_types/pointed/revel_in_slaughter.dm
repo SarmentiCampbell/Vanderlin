@@ -19,11 +19,13 @@
 /datum/action/cooldown/spell/revel_in_slaughter/is_valid_target(atom/cast_on)
 	. = ..()
 	if(!.)
-		return FALSE
+		return
 	return ishuman(cast_on)
 
 /datum/action/cooldown/spell/revel_in_slaughter/before_cast()
 	. = ..()
+	if(. & SPELL_CANCEL_CAST)
+		return
 	var/success = 0
 	for(var/obj/effect/decal/cleanable/blood/B in view(3, owner))
 		success++
