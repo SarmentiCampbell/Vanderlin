@@ -29,7 +29,7 @@
 /datum/action/cooldown/spell/beam/equalize/is_valid_target(atom/cast_on)
 	. = ..()
 	if(!.)
-		return FALSE
+		return
 	return ishuman(cast_on)
 
 /datum/action/cooldown/spell/beam/equalize/can_cast_spell(feedback)
@@ -37,11 +37,9 @@
 	if(!.)
 		return
 
-	if(!ishuman(owner))
-		return FALSE
+	return ishuman(owner)
 
-/datum/action/cooldown/spell/beam/equalize/on_beam_connect(mob/living/carbon/human/victim, mob/owner)
-	var/mob/living/carbon/human/cast_on = victim
+/datum/action/cooldown/spell/beam/equalize/on_beam_connect(mob/living/carbon/human/cast_on, mob/owner)
 	equal(cast_on)
 
 /datum/action/cooldown/spell/beam/equalize/proc/equal(mob/living/carbon/human/victim)

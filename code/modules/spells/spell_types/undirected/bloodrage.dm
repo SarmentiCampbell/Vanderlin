@@ -14,11 +14,11 @@
 	cooldown_time = 5 MINUTES
 	spell_cost = 80
 	var/static/list/purged_effects = list(
-			/datum/status_effect/incapacitating/immobilized,
-			/datum/status_effect/incapacitating/paralyzed,
-			/datum/status_effect/incapacitating/stun,
-			/datum/status_effect/incapacitating/knockdown,
-		)
+		/datum/status_effect/incapacitating/immobilized,
+		/datum/status_effect/incapacitating/paralyzed,
+		/datum/status_effect/incapacitating/stun,
+		/datum/status_effect/incapacitating/knockdown,
+	)
 
 /datum/action/cooldown/spell/undirected/bloodrage/before_cast(mob/living/cast_on)
 	. = ..()

@@ -34,26 +34,26 @@
 	if(totalvalue <=10)
 		to_chat(owner, "<font color='yellow'>[cast_on] one has no wealth to hold against them.</font>")
 		return
-	if(totalvalue <=30)
+	if(totalvalue <= 30)
 		owner.say("Wealth becomes woe!")
 		cast_on.visible_message(span_danger("[cast_on] is burned by holy light!"), span_userdanger("I feel the weight of my wealth burning at my soul!"))
 		cast_on.adjustFireLoss(30)
 		playsound(owner, 'sound/magic/churn.ogg', 100, TRUE)
 		return
-	if(totalvalue <=60)
+	if(totalvalue <= 60)
 		owner.say("Wealth becomes woe!")
 		cast_on.visible_message(span_danger("[cast_on] is burned by holy light!"), span_userdanger("I feel the weight of my wealth burning at my soul!"))
 		cast_on.adjustFireLoss(60)
 		playsound(owner, 'sound/magic/churn.ogg', 100, TRUE)
 		return
-	if(totalvalue <=100)
+	if(totalvalue <= 100)
 		owner.say("Wealth becomes woe!")
 		cast_on.visible_message(span_danger("[cast_on] is burned by holy light!"), span_userdanger("I feel the weight of my wealth burning at my soul!"))
 		cast_on.adjustFireLoss(80)
 		cast_on.Stun(20)
 		playsound(owner, 'sound/magic/churn.ogg', 100, TRUE)
 		return
-	if(totalvalue <=200)
+	if(totalvalue <= 200)
 		owner.say("The Free-God rebukes!")
 		cast_on.visible_message(span_danger("[cast_on] is burned by holy light!"), span_userdanger("I feel the weight of my wealth tearing at my soul!"))
 		cast_on.adjustFireLoss(100)
@@ -62,7 +62,7 @@
 		cast_on.IgniteMob()
 		playsound(owner, 'sound/magic/churn.ogg', 100, TRUE)
 		return
-	if(totalvalue <=500)
+	if(totalvalue <= 500)
 		owner.say("The Free-God rebukes!")
 		cast_on.visible_message(span_danger("[cast_on] is burned by holy light!"), span_userdanger("I feel the weight of my wealth tearing at my soul!"))
 		cast_on.adjustFireLoss(120)
@@ -81,4 +81,3 @@
 		cast_on.emote("agony")
 		playsound(owner, 'sound/magic/churn.ogg', 100, TRUE)
 		explosion(get_turf(cast_on), light_impact_range = 1, flame_range = 1, smoke = FALSE)
-		return
