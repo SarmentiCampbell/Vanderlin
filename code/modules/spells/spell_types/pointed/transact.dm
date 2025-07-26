@@ -42,8 +42,6 @@
 		var/mob/living/carbon/C = cast_on
 		var/datum/status_effect/buff/matthioshealing/heal_effect = C.apply_status_effect(/datum/status_effect/buff/matthioshealing)
 		heal_effect.healing_on_tick = helditemvalue/2
-		playsound(owner, 'sound/combat/hits/burn (2).ogg', 100, TRUE)
-		qdel(held_item)
 	else
 		cast_on.adjustBruteLoss(helditemvalue / 2)
 		cast_on.adjustFireLoss(helditemvalue / 2)
