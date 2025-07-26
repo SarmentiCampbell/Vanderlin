@@ -20,7 +20,8 @@
 		/datum/attunement/arcyne = 0.4,
 	)
 
-/datum/action/cooldown/spell/conjure/raise_lesser_undead/post_summon(/mob/living/simple_animal/skeleton, atom/cast_on)
+/datum/action/cooldown/spell/conjure/raise_lesser_undead/post_summon(atom/summoned_object, atom/cast_on)
+	var/mob/living/skeleton = summoned_object
 	skeleton.befriend(owner)
 
 	if(isliving(cast_on))
