@@ -550,6 +550,11 @@
 	owner.add_filter(MIRACLE_HEALING_FILTER, 2,  outline_filter(2, outline_colour))
 	return TRUE
 
+/datum/status_effect/buff/matthioshealing/on_remove()
+	. = ..()
+	owner.remove_filter(MIRACLE_HEALING_FILTER)
+	return TRUE
+
 
 /datum/status_effect/buff/matthioshealing/tick()
 	if(owner.blood_volume < BLOOD_VOLUME_NORMAL)

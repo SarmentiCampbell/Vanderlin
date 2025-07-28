@@ -93,7 +93,9 @@
 	if(!(cast_on.mob_biotypes & MOB_UNDEAD))
 		cast_on.visible_message(span_warning("The pallor of the grave descends across [cast_on]'s skin in a wave of arcyne energy..."), span_boldwarning("A deathly chill overtakes my body at my first culmination of the Lesser Work! I feel my heart slow down in my chest..."))
 		cast_on.mob_biotypes |= MOB_UNDEAD
-		cast_on.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES) //You'll finally get leyline recharge..
+		cast_on.mana_pool.intrinsic_recharge_sources &= ~MANA_ALL_LEYLINES
+		cast_on.mana_pool.set_intrinsic_recharge(MANA_SOULS)
+		cast_on.add_spell(/datum/action/cooldown/spell/undirected/arcyne_eye, source = src)
 		to_chat(cast_on, span_smallred("I have forsaken the living. I am now closer to a deadite than a mortal... but I still yet draw breath and bleed."))
 
 	part_to_bonify.skeletonize(FALSE)
