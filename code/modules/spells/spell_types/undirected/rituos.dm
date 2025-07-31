@@ -112,6 +112,7 @@
 		cast_on.visible_message(span_boldwarning("[cast_on]'s form swells with terrible power as they cast away almost all of the remnants of their mortal flesh, arcyne runes glowing upon their exposed bones..."), span_notice("I HAVE DONE IT! I HAVE COMPLETED HER LESSER WORK! I stand at the cusp of unspeakable power, but something is yet missing..."))
 		ADD_TRAIT(cast_on, TRAIT_NOHUNGER, "[type]")
 		ADD_TRAIT(cast_on, TRAIT_NOBREATH, "[type]")
+		heldspell = null
 		UnregisterSignal(cast_on, COMSIG_LIVING_DREAM_END)
 		if(prob(33))
 			to_chat(cast_on, span_danger("...what have I done?"))
@@ -126,7 +127,7 @@
 	SIGNAL_HANDLER
 	if(heldspell)
 		to_chat(user, span_warning("My glimpse of [heldspell.name] fades as I awaken..."))
-		user.remove_spells(source = src)
+		user.remove_spell(heldspell) //source = src doesn't work for whatever reason, somehow it'll also make the rituos unable to refresh itself, no runtime either.
 		heldspell = null
 	to_chat(user, span_smallnotice("The toil of invoking Her Lesser Work slips away. I may begin anew…"))
 	reset_spell_cooldown()
