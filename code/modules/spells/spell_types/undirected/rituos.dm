@@ -95,7 +95,7 @@
 		cast_on.mob_biotypes |= MOB_UNDEAD
 		cast_on.mana_pool.intrinsic_recharge_sources &= ~MANA_ALL_LEYLINES
 		cast_on.mana_pool.set_intrinsic_recharge(MANA_SOULS)
-		cast_on.add_spell(/datum/action/cooldown/spell/undirected/arcyne_eye)
+		cast_on.add_spell(/datum/action/cooldown/spell/undirected/arcyne_eye, source = src)
 		to_chat(cast_on, span_smallred("I have forsaken the living. I am now closer to a deadite than a mortal... but I still yet draw breath and bleed."))
 
 	part_to_bonify.skeletonize(FALSE)
@@ -120,14 +120,14 @@
 		return
 	else
 		to_chat(cast_on, span_notice("The Lesser Work of Rituos floods my mind with stolen arcyne knowledge: I can now cast it until I next rest..."))
-		cast_on.add_spell(heldspell, source = src)
+		cast_on.add_spell(heldspell, FALSE, src)
 		return
 
 /datum/action/cooldown/spell/undirected/rituos/proc/on_dream_end(mob/living/carbon/user)
 	SIGNAL_HANDLER
 	if(heldspell)
 		to_chat(user, span_warning("My glimpse of [heldspell.name] fades as I awaken..."))
-		user.remove_spells(source = src)
+		user.remove_spell(heldspell) //source = src doesn't work for whatever reason, somehow it'll also make the rituos unable to refresh itself, no runtime either.
 		heldspell = null
 	to_chat(user, span_smallnotice("The toil of invoking Her Lesser Work slips away. I may begin anew…"))
 	reset_spell_cooldown()
