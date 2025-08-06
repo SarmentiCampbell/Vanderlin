@@ -29,16 +29,20 @@
 
 /proc/handle_maniac_hallucinations(mob/living/target)
 	//Chasing mob
-	if(prob(1))
+	if(prob(1) && prob(2))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_mob_hallucination), target)
 	//Talking objects
 	else if(prob(4))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_object_hallucination), target)
+	//Inner Thoughts..Or is it?
+	else if(prob(20))
+		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_blurbs_hallucination), target)
 	//Meta hallucinations
 	else if(prob(1) && prob(5))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_bwoink_hallucination), target)
 	else if(prob(1) && prob(2))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_ban_hallucination), target)
+
 /proc/handle_maniac_object_hallucination(mob/living/target)
 	var/list/objects = list()
 	for(var/obj/object in view(target))
@@ -221,3 +225,20 @@
 	to_chat(target, span_boldannounce("To appeal this ban go to <span style='color: #0099cc;'>[ban_appeal].</span>"))
 	to_chat(target, "<div class='connectionClosed internal'>You are either AFK, experiencing lag or the connection has closed.</div>")
 	SEND_SOUND(target, sound(null))
+
+/proc/handle_maniac_blurbs_hallucination(mob/living/target)
+	if(!target.client)
+		return
+	var/text = ""
+	var/screen_location = pick(
+		"CENTER,CENTER",
+		"CENTER,TOP+1",
+		"CENTER,BOTTOM+1")
+	if(prob(0.1)) //has a chance to spawn a mob hallucination, gg to those who get the reference
+		text = pick_list_replacements("maniac.json", "dreamer_blurb_incoming")
+		show_blurb(target.client, 5 SECONDS, text, 3 SECONDS, "white", "black", "left", screen_location)
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/handle_maniac_mob_hallucination, target), rand(20 SECONDS, 40 SECONDS))
+		return
+	text = pick_list_replacements("maniac.json", "dreamer_blurb")
+	show_blurb(target.client, 5 SECONDS, text, 3 SECONDS, "white", "black", "left", screen_location)
+
