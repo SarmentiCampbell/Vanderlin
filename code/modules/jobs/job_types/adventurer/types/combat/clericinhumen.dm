@@ -23,10 +23,19 @@
 	neck = /obj/item/clothing/neck/chaincoif/iron // Everyone gets iron coif, instead of variable neck armor
 	belt = /obj/item/storage/belt/leather
 	backr = /obj/item/weapon/shield/heater
-	if(iself(H) || ishalfelf(H))
-		beltl = /obj/item/weapon/mace/elvenclub
+	if(ispath(H.patron?.type, /datum/patron/inhumen/zizo))
+		beltl = /obj/item/weapon/sword/iron
+	else if(ispath(H.patron?.type, /datum/patron/inhumen/matthios))
+		backl = /obj/item/weapon/polearm/woodstaff/quarterstaff
+	else if(ispath(H.patron?.type, /datum/patron/inhumen/baotha))
+		beltl = /obj/item/weapon/knife/dagger/steel
+		backl = /obj/item/storage/backpack/satchel
+		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison = 2, /obj/item/weapon/knife/dagger/steel = 1) //Poison
 	else
-		beltl = /obj/item/weapon/mace
+		if(iself(H) || ishalfelf(H))
+			beltl = /obj/item/weapon/mace/elvenclub
+		else
+			beltl = /obj/item/weapon/mace
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 	switch(H.patron?.type)
 		if(/datum/patron/inhumen/graggar)
@@ -45,6 +54,7 @@
 			head = /obj/item/clothing/head/crown/circlet
 			mask = /obj/item/clothing/face/spectacles/sglasses
 			cloak = /obj/item/clothing/cloak/raincloak/purple
+			ADD_TRAIT(H, TRAIT_DUALWIELDER, TRAIT_GENERIC)
 			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 		else // Failsafe
 			cloak = /obj/item/clothing/cloak/tabard/crusader // Give us a generic crusade tabard
@@ -64,6 +74,13 @@
 		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		var/datum/skill/to_add = /datum/skill/combat/axesmaces
+		if(ispath(H.patron?.type, /datum/patron/inhumen/zizo))
+			to_add = /datum/skill/combat/swords
+		if(ispath(H.patron?.type, /datum/patron/inhumen/matthios))
+			to_add = /datum/skill/combat/polearms
+		if(ispath(H.patron?.type, /datum/patron/inhumen/baotha))
+			to_add = /datum/skill/combat/knives
+			H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 		H.adjust_skillrank(to_add, 3, TRUE)
 		if(H.age == AGE_OLD)
 			H.adjust_skillrank(to_add, 1, TRUE)
