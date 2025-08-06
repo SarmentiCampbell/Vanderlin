@@ -1053,7 +1053,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	animate(T, alpha = 255, time = 10)
 	T.maptext = "<span style=\"[style]\">[text]</span>"
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/fade_blurb, C, T, fade_time), duration)
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/fade_blurb, C, T, fade_time), duration)
 
 
 /proc/fade_blurb(client/C, obj/T, fade_time = 5)
