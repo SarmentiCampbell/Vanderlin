@@ -27,6 +27,9 @@
 		TRAIT_SCHIZO_AMBIENCE,
 		TRAIT_DARKVISION,
 		TRAIT_NOPAINSTUN,
+		TRAIT_BLOODLOSS_IMMUNE,
+		TRAIT_NOENERGY,
+		TRAIT_CRITICAL_RESISTANCE,
 	)
 	/// Traits that only get applied in the final sequence
 	var/static/list/final_traits = list(
@@ -98,6 +101,8 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			dreamer.adjust_skillrank(/datum/skill/combat/knives, 6, TRUE)
 			dreamer.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 			dreamer.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
+			dreamer.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
+			dreamer.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			dreamer.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
 			for(var/datum/status_effect/effect in dreamer.status_effects) //necessary to prevent exploits
 				dreamer.remove_status_effect(effect)
