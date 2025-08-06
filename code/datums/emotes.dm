@@ -120,7 +120,9 @@
 /mob/living/carbon/human/get_emote_pitch()
 	var/final_pitch = ..()
 	var/pitch_modifier = 0
-	if(STASTR > 10 && !TRAIT_DECEIVING_MEEKNESS)
+	if(has_trait(src, TRAIT_DECEIVING_MEEKNESS)
+		return final_pitch
+	if(STASTR > 10)
 		pitch_modifier -= (STASTR - 10) * 0.03
 	else if(STASTR < 10)
 		pitch_modifier += (10 - STASTR) * 0.03
