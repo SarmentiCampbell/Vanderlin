@@ -1034,7 +1034,6 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	if(!C)
 		return
 
-
 	var/style = "font-family: 'Fixedsys'; text-align: [text_align]; -dm-text-outline: 1 [outline_color]; font-size: 6px"
 	var/text = blurb_text
 
