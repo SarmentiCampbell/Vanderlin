@@ -27,7 +27,6 @@
 		TRAIT_SCHIZO_AMBIENCE,
 		TRAIT_DARKVISION,
 		TRAIT_NOPAINSTUN,
-		TRAIT_BLOODLOSS_IMMUNE,
 		TRAIT_NOENERGY,
 		TRAIT_CRITICAL_RESISTANCE,
 	)
@@ -95,6 +94,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	if(owner.current)
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
+			var/datum/physiology/phy = dreamer.physiology
 			dreamer.set_patron(/datum/patron/inhumen/graggar_zizo)
 			old_cm = dreamer.cmode_music
 			dreamer.cmode_music = 'sound/music/cmode/antag/combat_maniac.ogg'
@@ -104,6 +104,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			dreamer.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
 			dreamer.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			dreamer.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
+			phy.bleed_mod = 0.2
 			for(var/datum/status_effect/effect in dreamer.status_effects) //necessary to prevent exploits
 				dreamer.remove_status_effect(effect)
 			var/extra_strength = max(16 - dreamer.base_strength, 0)
