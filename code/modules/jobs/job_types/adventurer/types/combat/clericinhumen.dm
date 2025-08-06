@@ -23,8 +23,8 @@
 	neck = /obj/item/clothing/neck/chaincoif/iron // Everyone gets iron coif, instead of variable neck armor
 	belt = /obj/item/storage/belt/leather
 	backr = /obj/item/weapon/shield/heater
-	if(ispath(H.patron?.type, /datum/patron/inhumen/zizo))
-		beltl = /obj/item/weapon/sword/iron
+	if(ispath(H.patron?.type, /datum/patron/inhumen/graggar))
+		beltl = /obj/item/weapon/axe/iron
 	else if(ispath(H.patron?.type, /datum/patron/inhumen/matthios))
 		backl = /obj/item/weapon/polearm/woodstaff/quarterstaff
 	else if(ispath(H.patron?.type, /datum/patron/inhumen/baotha))
@@ -46,6 +46,7 @@
 			H.cmode_music = 'sound/music/cmode/antag/combat_werewolf.ogg'
 		if(/datum/patron/inhumen/zizo)
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
+			head = /obj/item/clothing/head/helmet/skullcap/cult
 			H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 		if(/datum/patron/inhumen/matthios)
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
@@ -74,8 +75,6 @@
 		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		var/datum/skill/to_add = /datum/skill/combat/axesmaces
-		if(ispath(H.patron?.type, /datum/patron/inhumen/zizo))
-			to_add = /datum/skill/combat/swords
 		if(ispath(H.patron?.type, /datum/patron/inhumen/matthios))
 			to_add = /datum/skill/combat/polearms
 		if(ispath(H.patron?.type, /datum/patron/inhumen/baotha))
