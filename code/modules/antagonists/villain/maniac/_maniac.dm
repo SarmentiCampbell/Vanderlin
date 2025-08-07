@@ -147,7 +147,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
 			dreamer.cmode_music = old_cm
 			dreamer.remove_stat_modifier("[type]")
-			phy.bleed_mod *= 1
+			phy.bleed_mod *= 2
 			var/client/client = dreamer?.client
 			if(client) //clear screenshake animation
 				animate(client, dreamer.pixel_y)
