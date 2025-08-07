@@ -43,7 +43,7 @@
 	roundstart = FALSE
 	weight = 4
 	base_antags = 1
-	earliest_start = 25 MINUTES
+	earliest_start = 1 HOURS
 	maximum_antags = 2
 	typepath = /datum/round_event/antagonist/solo/maniac/midround
 

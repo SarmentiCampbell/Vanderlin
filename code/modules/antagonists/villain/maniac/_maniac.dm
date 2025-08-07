@@ -143,9 +143,11 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			to_chat(owner.current,span_danger("I am no longer a MANIAC!"))
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
+			var/datum/physiology/phy = dreamer.physiology
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
 			dreamer.cmode_music = old_cm
 			dreamer.remove_stat_modifier("[type]")
+			phy.bleed_mod *= 1
 			var/client/client = dreamer?.client
 			if(client) //clear screenshake animation
 				animate(client, dreamer.pixel_y)
