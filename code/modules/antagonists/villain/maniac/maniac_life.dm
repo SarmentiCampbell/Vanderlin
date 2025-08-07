@@ -32,7 +32,7 @@
 	if(prob(1) && prob(2))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_mob_hallucination), target)
 	//Talking objects
-	if(prob(4))
+	else if(prob(4))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_object_hallucination), target)
 	//Inner Thoughts..Or is it?
 	if(prob(5))
