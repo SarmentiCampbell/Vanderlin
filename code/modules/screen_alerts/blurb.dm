@@ -70,11 +70,6 @@ but should see their own spawn message even if the player already dropped as USC
 	if(scroll_down)
 		T.maptext_y = length(linebreaks) * 14
 
-	// var/old_maptext_width = T.maptext_width
-
-	// T.maptext_width -= offsets[1]
-	// T.maptext_width = old_maptext_width
-
 	for(var/mob/M as anything in targets)
 		if(blurb_key)
 			if(!ignore_key && (M.key in GLOB.blurb_witnesses[blurb_key]))
