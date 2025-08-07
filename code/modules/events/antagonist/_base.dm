@@ -25,8 +25,6 @@
 /datum/round_event_control/antagonist/proc/trim_candidates(list/candidates)
 	if(length(needed_job))
 		for(var/mob/living/candidate in candidates)
-			if(!candidate)
-				candidates -= candidate
 			if(!(candidate.mind?.assigned_role.title in needed_job))
 				candidates -= candidate
 	return candidates
