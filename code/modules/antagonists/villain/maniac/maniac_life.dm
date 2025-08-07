@@ -35,10 +35,10 @@
 	if(prob(4))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_object_hallucination), target)
 	//Inner Thoughts..Or is it?
-	else if(prob(5))
+	if(prob(5))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_blurbs_hallucination), target)
 	//Meta hallucinations
-	if(prob(1) && prob(5))
+	else if(prob(1) && prob(5))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_bwoink_hallucination), target)
 	else if(prob(1) && prob(2))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_ban_hallucination), target)
