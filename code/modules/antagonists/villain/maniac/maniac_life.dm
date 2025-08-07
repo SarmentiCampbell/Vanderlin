@@ -32,13 +32,13 @@
 	if(prob(1) && prob(2))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_mob_hallucination), target)
 	//Talking objects
-	else if(prob(4))
+	if(prob(4))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_object_hallucination), target)
 	//Inner Thoughts..Or is it?
-	else if(prob(1))
+	else if(prob(5))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_blurbs_hallucination), target)
 	//Meta hallucinations
-	else if(prob(1) && prob(5))
+	if(prob(1) && prob(5))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_bwoink_hallucination), target)
 	else if(prob(1) && prob(2))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_ban_hallucination), target)
@@ -137,7 +137,7 @@
 		return
 	if(caught_dreamer)
 		var/datum/antagonist/maniac/maniac = target.mind.has_antag_datum(/datum/antagonist/maniac)
-		target.Stun(rand(0.5, 1) SECONDS)
+		target.Stun(rand(1, 1.5) SECONDS)
 		var/pain_message = pick("NO!", "THEY GOT ME!", "AGH!")
 		to_chat(target, span_userdanger("[pain_message]"))
 		if(!maniac) //If they're a maniac, they don't freak out and get knocked down, they still get stunned.
@@ -230,15 +230,13 @@
 	if(!target.client)
 		return
 	var/text = ""
-	var/screen_location = pick(
-		"CENTER,CENTER",
-		"CENTER,TOP+1",
-		"CENTER,BOTTOM+1")
+	var/screen_location = "WEST+[rand(2,13)], SOUTH+[rand(1,12)]"
+	var/text_align = pick("left", "right", "center")
+
 	if(prob(0.1)) //has a chance to spawn a mob hallucination, gg to those who get the reference
 		text = pick_list_replacements("maniac.json", "dreamer_blurb_incoming")
-		show_blurb(target.client, 5 SECONDS, text, 3 SECONDS, "white", "black", "left", screen_location)
-		addtimer(CALLBACK(GLOBAL_PROC, /proc/handle_maniac_mob_hallucination, target), rand(20 SECONDS, 40 SECONDS))
+		show_blurb(target, duration = 3 SECONDS, message = text, fade_time = 3 SECONDS, screen_position = "CENTER, BOTTOM+1", text_alignment = "center", text_color = "white", outline_color = "black", speed = 0)
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/handle_maniac_mob_hallucination, target), rand(8 SECONDS, 15 SECONDS))
 		return
 	text = pick_list_replacements("maniac.json", "dreamer_blurb")
-	show_blurb(target.client, 5 SECONDS, text, 3 SECONDS, "white", "black", "left", screen_location)
-
+	show_blurb(target, duration = 3 SECONDS, message = text, fade_time = 3 SECONDS, screen_position = screen_location, text_alignment = text_align, text_color = "white", outline_color = "black")
