@@ -106,7 +106,7 @@
 		end_play(player)
 		return
 	animate(src, alpha = 0, time = fade_out_time)
-	addtimer(CALLBACK(src, .PROC_REF(end_play), player), fade_out_time)
+	addtimer(CALLBACK(src, PROC_REF(end_play), player), fade_out_time)
 
 ///ends the play then deletes this screen object and plays the next one in queue if it exists
 /atom/movable/screen/text/screen_text/proc/end_play(client/player)
