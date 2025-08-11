@@ -132,7 +132,7 @@
 	H.set_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 	H.set_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 	H.set_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.set_skillrank(/datum/skill/combat/knives, 5, TRUE)
+	H.set_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.set_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
 
