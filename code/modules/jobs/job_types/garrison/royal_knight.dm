@@ -106,9 +106,9 @@
 	var/modifier = reduced_skill
 	switch(choice)
 		if("Flail")
-			H.adjust_skillrank(/datum/skill/combat/whipsflails, 2 - modifier, TRUE)
+			H.clamped_adjust_skillrank(/datum/skill/combat/whipsflails, 2 - modifier, 5, TRUE)
 		if("Halberd")
-			H.adjust_skillrank(/datum/skill/combat/polearms, 2 - modifier, TRUE)
+			H.clamped_adjust_skillrank(/datum/skill/combat/polearms, 2 - modifier, 5, TRUE)
 			grant_shield = FALSE
 		if("Longsword")
 			if(!reduced_skill)
@@ -121,7 +121,7 @@
 			if(!reduced_skill)
 				H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			H.clamped_adjust_skillrank(/datum/skill/combat/knives, 2, 5, TRUE)
 			grant_shield = FALSE
 	if(grant_shield)
 		H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
