@@ -626,7 +626,8 @@
 	greet_text = span_notice("I am a devoted warrior of the Ten, and my equipments lie hidden in their resting place, ready to be donned when the call comes.")
 	allowed_jobs = list(/datum/job/royalknight)
 	allowed_flaw = /datum/charflaw/addiction/godfearing
-	req_text = "Be a Royal knight, a devout follower and a follower of the ten."
+	allowed_patrons = ALL_TEMPLE_PATRONS
+	req_text = "Be a Royal knight, With the Flaw 'devout follower' and be a follower of the ten."
 	weight = 50
 
 /datum/special_trait/devoutknight/on_apply(mob/living/carbon/human/character, silent)
