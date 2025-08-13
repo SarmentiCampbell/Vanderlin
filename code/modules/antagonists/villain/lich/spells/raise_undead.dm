@@ -93,12 +93,6 @@
 	base_intelligence = 4
 	base_speed = 9
 	base_fortune = 6
-	possible_rmb_intents = list(/datum/rmb_intent/feint,\
-	/datum/rmb_intent/aimed,\
-	/datum/rmb_intent/riposte,\
-	/datum/rmb_intent/strong,\
-	/datum/rmb_intent/weak)
-	swap_rmb_intent(num=1)
 	cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 
 	set_patron(master.patron)
