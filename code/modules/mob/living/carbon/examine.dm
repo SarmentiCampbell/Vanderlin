@@ -1,8 +1,6 @@
 /mob/living/carbon/examine(mob/user)
 	var/aghost_privilege = IsAdminGhost(user)
 	var/datum/antagonist/maniac/maniac = user.mind?.has_antag_datum(/datum/antagonist/maniac)
-	if(maniac && (user != src))
-		race_name = "disgusting pig"
 
 	var/t_He = p_they(TRUE)
 	var/t_his = p_their()

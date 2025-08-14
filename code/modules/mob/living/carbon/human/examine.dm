@@ -40,6 +40,9 @@
 	var/obscure_name
 	var/race_name = dna?.species.name
 	var/self_inspect = FALSE
+	var/datum/antagonist/maniac/maniac = user.mind?.has_antag_datum(/datum/antagonist/maniac)
+	if(maniac && (user != src))
+		race_name = "disgusting pig"
 
 	var/m1 = "[t_He] [t_is]"
 	var/m2 = "[t_his]"
@@ -540,7 +543,6 @@
 			if(-INFINITY to -5)
 				. += span_warning("<B>[t_He] look[p_s()] much weaker than I.</B>")
 
-		var/datum/antagonist/maniac/maniac = user.mind?.has_antag_datum(/datum/antagonist/maniac)
 		if(maniac)
 			var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
 			if(heart)
