@@ -14,9 +14,6 @@
 		"Monarch",
 		"Consort",
 		"Priest",
-		"Orphan",
-		"Churchling",
-		"Innkeepers Son",
 		"Captain",
 		"Hand",
 		"Forest Warden",
@@ -41,9 +38,10 @@
 /datum/round_event_control/antagonist/solo/maniac/midround
 	name = "Maniacs Midround"
 	roundstart = FALSE
-	weight = 4
+	weight = 12
+	max_occurrences = 2
 	base_antags = 1
-	earliest_start = 1 HOURS
+	earliest_start = 30 MINUTES
 	maximum_antags = 2
 	typepath = /datum/round_event/antagonist/solo/maniac/midround
 
