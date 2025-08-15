@@ -367,5 +367,12 @@
                 "balance": "fiber bundles can hold 12 fibers now."
             }
         ]
+    },
+    "2025-08-15": {
+        "DrSirKnight": [
+            {
+                "qol": "Lore Primer can now be checked at any time, not just in lobby."
+            }
+        ]
     }
 }
