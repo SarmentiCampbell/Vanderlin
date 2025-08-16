@@ -29,7 +29,7 @@
 	if(prob(minor_prob))
 		var/picked = pick(minor_events)
 		if(picked)
-			var/datum/round_event_control/antagonist/eventpicked = new picked
+			var/datum/round_event_control/antagonist/eventpicked = locate(picked) in SSgamemode.control
 			if(eventpicked)
 				eventpicked.minor_prob = 0
 				SSgamemode.TriggerEvent(eventpicked, forced = FALSE)
