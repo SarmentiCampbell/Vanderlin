@@ -18,7 +18,7 @@
 	)
 	var/minor_prob = 80
 
-/datum/round_event_control/antagonist/New()
+/datum/round_event_control/antagonist/runEvent(random = FALSE, admin_forced = TRUE)
 	. = ..()
 	try_trigger_minor_event()
 
@@ -32,7 +32,7 @@
 			var/datum/round_event_control/antagonist/eventpicked = new picked
 			if(eventpicked)
 				eventpicked.minor_prob = 0
-				eventpicked.runEvent()
+				SSgamemode.TriggerEvent(eventpicked, forced = FALSE)
 
 /datum/round_event_control/antagonist/proc/check_required()
 	if(!length(exclusive_roles))
