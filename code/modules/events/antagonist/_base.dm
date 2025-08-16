@@ -29,8 +29,9 @@
 	if(prob(minor_prob))
 		var/picked = pick(minor_events)
 		if(picked)
-			var/datum/round_event_control/eventpicked = new picked
+			var/datum/round_event_control/antagonist/eventpicked = new picked
 			if(eventpicked)
+				eventpicked.minor_prob = 0
 				eventpicked.runEvent()
 
 /datum/round_event_control/antagonist/proc/check_required()

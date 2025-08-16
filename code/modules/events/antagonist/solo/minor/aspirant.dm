@@ -24,7 +24,7 @@
 	maximum_antags = 1
 
 	earliest_start = 0 SECONDS
-	var/list/minor_events = list(
+	minor_events = list(
 		/datum/round_event_control/antagonist/solo/maniac
 	)
 	weight = 8
