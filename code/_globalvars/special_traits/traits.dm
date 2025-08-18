@@ -713,7 +713,7 @@
 			weapon = /obj/item/weapon/sword/long/judgement/evil
 	if(!character.has_language(/datum/language/celestial))
 		character.grant_language(/datum/language/celestial)
-		to_chat(character, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
+		to_chat(character, span_info("I can speak Celestial with ,c before my speech."))
 	character.mind.special_items["Weapon"] = weapon
 	character.mind.special_items["Tabard"] = cloak
 	character.mind.special_items["Psycross"] = psycross
