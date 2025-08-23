@@ -26,14 +26,17 @@
 	if(!minor_events) //Just in case the list is empty
 		return
 
+	var/players_amt = get_active_player_count(alive_check = TRUE, afk_check = TRUE, human_check = TRUE)
+
 	if(prob(minor_prob))
 		var/picked = pick(minor_events)
 		if(picked)
 			var/datum/round_event_control/antagonist/eventpicked = locate(picked) in SSgamemode.control
 			if(eventpicked)
 				eventpicked.min_players = 50
-				eventpicked.minor_prob = 0
-				SSgamemode.TriggerEvent(eventpicked, forced = FALSE)
+				if(eventpicked.canSpawnEvent(players_amt))
+					eventpicked.minor_prob = 0
+					SSgamemode.TriggerEvent(eventpicked, forced = FALSE)
 
 /datum/round_event_control/antagonist/proc/check_required()
 	if(!length(exclusive_roles))
