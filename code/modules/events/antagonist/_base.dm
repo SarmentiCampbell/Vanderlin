@@ -31,6 +31,7 @@
 		if(picked)
 			var/datum/round_event_control/antagonist/eventpicked = locate(picked) in SSgamemode.control
 			if(eventpicked)
+				eventpicked.min_players = 50
 				eventpicked.minor_prob = 0
 				SSgamemode.TriggerEvent(eventpicked, forced = FALSE)
 
