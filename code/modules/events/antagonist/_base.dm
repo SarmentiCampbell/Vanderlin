@@ -16,7 +16,7 @@
 		/datum/round_event_control/antagonist/solo/aspirant,
 		/datum/round_event_control/antagonist/solo/maniac
 	)
-	var/minor_prob = 80
+	var/minor_prob = 25
 
 /datum/round_event_control/antagonist/runEvent(random = FALSE, admin_forced = TRUE)
 	. = ..()
