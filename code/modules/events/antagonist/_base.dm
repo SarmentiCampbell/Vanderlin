@@ -23,20 +23,25 @@
 	try_trigger_minor_event()
 
 /datum/round_event_control/antagonist/proc/try_trigger_minor_event()
-	if(!secondary_events) //Just in case the list is empty
+	if(!length(secondary_events))
 		return
 
 	var/players_amt = get_active_player_count(alive_check = TRUE, afk_check = TRUE, human_check = TRUE)
 
-	if(prob(secondary_prob))
-		var/picked = pick(secondary_events)
-		if(picked)
-			var/datum/round_event_control/antagonist/eventpicked = locate(picked) in SSgamemode.control
-			if(eventpicked)
-				eventpicked.min_players = 50
-				if(eventpicked.canSpawnEvent(players_amt))
-					eventpicked.secondary_prob = 0
-					SSgamemode.TriggerEvent(eventpicked, forced = FALSE)
+	if(players_amt < 50)
+		return
+
+	if(!prob(secondary_prob))
+		return
+
+	var/picked = pick(secondary_events)
+	if(!picked)
+		return
+
+	var/datum/round_event_control/antagonist/eventpicked = locate(picked) in SSgamemode.control
+	if(eventpicked)
+		eventpicked.secondary_prob = 0
+		SSgamemode.TriggerEvent(eventpicked, forced = FALSE)
 
 /datum/round_event_control/antagonist/proc/check_required()
 	if(!length(exclusive_roles))
