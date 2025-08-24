@@ -27,8 +27,8 @@
 						/obj/item/reagent_containers/food/snacks/fat = 1,
 						/obj/item/natural/hide = 4,
 						/obj/item/alch/sinew = 2,
-						/obj/item/alch/bone = 1,
-						/obj/item/natural/head/saiga = 1)
+						/obj/item/alch/bone = 1)
+	head_butcher = /obj/item/natural/head/saiga
 
 	health = FEMALE_SAIGA_HEALTH
 	maxHealth = FEMALE_SAIGA_HEALTH
@@ -198,6 +198,7 @@
 						/obj/item/natural/hide = 5,
 						/obj/item/alch/sinew = 2,
 						/obj/item/alch/bone = 1)
+	head_butcher = /obj/item/natural/head/saiga
 
 	health = MALE_SAIGA_HEALTH
 	maxHealth = MALE_SAIGA_HEALTH

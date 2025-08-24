@@ -1,0 +1,1 @@
+{"author":"Wouju","delete-after":true,"changes":[{"rscadd":"Made the Forgefiend a hammer, you can craft and smith with it now"},{"rscadd":"Wooden mallet can now be used to smith with"},{"code_imp":"hammers use defines for their force and integrity, set some maces integrity to use their defines"}]}
